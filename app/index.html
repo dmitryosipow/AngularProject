@@ -1,72 +1,211 @@
 <!doctype html>
 <html class="no-js">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css(.) styles/vendor.css -->
-    <!-- bower:css -->
-    <!-- endbower -->
-    <!-- endbuild -->
-    <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
-  </head>
-  <body ng-app="angularProjectApp">
-    <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-
-    <!-- Add your site or application content here -->
-    <div class="container">
-      <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a ng-href="#">Home</a></li>
-          <li><a ng-href="#">About</a></li>
-          <li><a ng-href="#">Contact</a></li>
-        </ul>
-        <h3 class="text-muted">angularProject</h3>
-      </div>
-
-      <div ng-include="'views/main.html'" ng-controller="MainCtrl"></div>
-
-      <div class="footer">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
-      </div>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css(.) styles/vendor.css -->
+  <!-- bower:css -->
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" type="text/css" href="styles/reset.css">
+  <link rel="stylesheet" type="text/css" href="styles/common.css">
+  <!-- endbuild -->
+</head>
+<body ng-app="angularProjectApp">
+<header>
+  <a class="logo">
+    <img src="images/logo.png">
+  </a>
+  <nav class="navigationMenu">
+    <ul>
+      <li >
+        <a href="#">JAVASCRIPT</a>
+      </li>
+      <li>
+        <a href="#">CSS</a>
+      </li>
+      <li class="active">
+        <a href="#">LATEST</a>
+      </li>
+      <li>
+        <a href="#">HTML</a>
+      </li>
+      <li>
+        <a href="#">DESIGN</a>
+      </li>
+    </ul>
+    <div class="aboutIcon">
+      <a href="#">?</a>
+    </div>
+    <div class="lookIcon">
+      <a href="#">!</a>
+    </div>
+    <div class="pencilIcon">
+      <a href="#"><img src="images/pencil.png"></a>
+    </div>
+    <div class="mobileListIcon">
+      <a href="#"><img src="images/mobileMenu.jpg"></a>
+    </div>
+    <p class="mobileNavTitle">JAVASCRIPT</p>
+  </nav>
+</header>
+<div class="content">
+  <aside>
+    <div class="sideArticle">
+      <h2 class="about">About</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab assumenda consectetur deserunt dolore doloribus
+        earum fuga hic illo illum, in laboriosam maiores mollitia necessitatibus nobis praesentium rem rerum saepe ut
+        veniam vero. Explicabo necessitatibus nobis nostrum sint soluta tempore! Tempore!
+      </p>
     </div>
 
+    <div class="sideArticle">
+      <h2 class="something">Something</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab assumenda consectetur deserunt dolore doloribus
+        earum fuga hic illo illum, in laboriosam maiores mollitia necessitatibus nobis praesentium rem rerum saepe ut
+        veniam vero. Explicabo necessitatibus nobis nostrum sint soluta tempore! Tempore!
+      </p>
+    </div>
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-     <script>
-       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    <div class="tags">
+      <a href="#">Raccoon</a>
+      <a href="#">Raccoon</a>
+      <a href="#">Raccoon</a>
+      <a href="#">Dog</a>
+      <a href="#">Cat</a>
+      <a href="#">Developer</a>
+      <a href="#">Raccoon</a>
+      <a href="#">Raccoon</a>
+      <a href="#">Coon</a>
+      <a href="#">Cat</a>
+      <a href="#">Developer</a>
+      <a href="#">Raccoon</a>
+      <a href="#">Raccoon</a>
+      <a href="#">Coon</a>
+      <a href="#">Dog</a>
+      <a href="#">Cat</a>
+      <a href="#">Developer</a>
+    </div>
+  </aside>
 
-       ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');
-    </script>
+  <div class="articles">
+    <article>
+      <div>
+        <img src="images/img1.jpg">
+      </div>
+      <h3>
+        <a href="#">Blogotitle of blogopost about blogoflowers</a>
+      </h3>
+      <div class="articleInfo">
+        <time>22:58 Jan 01, 2014</time>
+        <div class="author">by E. Hyperraccoon</div>
+        <div class="social">
+          <a href="#" class="fb">16</a>
+          <a href="#" class="goo">7</a>
+          <a href="#" class="twi">15</a>
+          <a href="#" class="vk">16</a>
+          <a href="#" class="ya">1</a>
+        </div>
+      </div>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consequatur dolore dolores dolorum
+        expedita facere ipsa iure laborum minima mollitia nobis, officiis, quas qui quis quos tempora,
+        veritatis voluptate voluptatibus? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque deleniti
+        dolores iusto maxime porro quisquam quos voluptates! A ab ad architecto atque deleniti, ea eligendi eum facilis
+        illo incidunt inventore iste iusto labore laudantium libero mollitia nisi omnis quibusdam quidem quos reiciendis
+        rem repellat repudiandae rerum, sit suscipit tenetur voluptate.
+      </p>
+    </article>
+    <article>
+      <div>
+        <img src="images/img2.jpg">
+      </div>
+      <h3>
+        <a href="#">Blogotitle of blogopost about blogoflowers</a>
+      </h3>
+      <div class="articleInfo">
+        <time>12:35 Jan 02, 2013</time>
+        <div class="author">by I. Greycat</div>
+        <div class="social">
+          <a href="#" class="fb">12</a>
+          <a href="#" class="goo">3</a>
+          <a href="#" class="twi">5</a>
+          <a href="#" class="vk">9</a>
+          <a href="#" class="ya">0</a>
+        </div>
+      </div>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consequatur dolore dolores dolorum
+        expedita facere ipsa iure laborum minima mollitia nobis, officiis, quas qui quis quos tempora,
+        veritatis voluptate voluptatibus? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque deleniti
+        dolores iusto maxime porro quisquam quos voluptates! A ab ad architecto atque deleniti, ea eligendi eum facilis
+        illo incidunt inventore iste iusto labore laudantium libero mollitia nisi omnis quibusdam quidem quos reiciendis
+        rem repellat repudiandae rerum, sit suscipit tenetur voluptate.
+      </p>
+    </article>
+    <article>
+      <div>
+        <img src="images/img1.jpg">
+      </div>
+      <h3>
+        <a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a>
+      </h3>
+      <div class="articleInfo">
+        <time>10:31 Jan 01, 2013</time>
+        <div class="author">by E.Shopenhauer</div>
+        <div class="social">
+          <a href="#" class="fb">2</a>
+          <a href="#" class="goo">13</a>
+          <a href="#" class="twi">15</a>
+          <a href="#" class="vk">21</a>
+          <a href="#" class="ya">2</a>
+        </div>
+      </div>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consequatur dolore dolores dolorum
+        expedita facere ipsa iure laborum minima mollitia nobis, officiis, quas qui quis quos tempora,
+        veritatis voluptate voluptatibus? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque deleniti
+        dolores iusto maxime porro quisquam quos voluptates! A ab ad architecto atque deleniti, ea eligendi eum facilis
+        illo incidunt inventore iste iusto labore laudantium libero mollitia nisi omnis quibusdam quidem quos reiciendis
+        rem repellat repudiandae rerum, sit suscipit tenetur voluptate.
+      </p>
+    </article>
+  </div>
 
-    <!-- build:js(.) scripts/oldieshim.js -->
-    <!--[if lt IE 9]>
-    <script src="bower_components/es5-shim/es5-shim.js"></script>
-    <script src="bower_components/json3/lib/json3.min.js"></script>
-    <![endif]-->
-    <!-- endbuild -->
+</div>
 
-    <!-- build:js(.) scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/json3/lib/json3.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <!-- endbuild -->
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-XXXXX-X');
+  ga('send', 'pageview');
+</script>
+
+<!-- build:js(.) scripts/oldieshim.js -->
+<!--[if lt IE 9]>
+<script src="bower_components/es5-shim/es5-shim.js"></script>
+<script src="bower_components/json3/lib/json3.min.js"></script>
+<![endif]-->
+<!-- endbuild -->
+
+<!-- build:js(.) scripts/vendor.js -->
+<!-- bower:js -->
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/json3/lib/json3.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="scripts/app.js"></script>
+<script src="scripts/controllers/main.js"></script>
+<script src="scripts/Script.js"></script>
+<!-- endbuild -->
 </body>
 </html>
