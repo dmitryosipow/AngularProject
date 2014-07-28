@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" ng-app="angularProjectApp">
 <head>
   <meta charset="utf-8">
   <title></title>
@@ -15,7 +15,7 @@
   <link rel="stylesheet" type="text/css" href="styles/common.css">
   <!-- endbuild -->
 </head>
-<body ng-app="angularProjectApp">
+<body ng-controller="MainCtrl as main">
 <header>
   <a class="logo">
     <img src="images/logo.png">
@@ -72,37 +72,21 @@
     </div>
 
     <div class="tags">
-      <a href="#">Raccoon</a>
-      <a href="#">Raccoon</a>
-      <a href="#">Raccoon</a>
-      <a href="#">Dog</a>
-      <a href="#">Cat</a>
-      <a href="#">Developer</a>
-      <a href="#">Raccoon</a>
-      <a href="#">Raccoon</a>
-      <a href="#">Coon</a>
-      <a href="#">Cat</a>
-      <a href="#">Developer</a>
-      <a href="#">Raccoon</a>
-      <a href="#">Raccoon</a>
-      <a href="#">Coon</a>
-      <a href="#">Dog</a>
-      <a href="#">Cat</a>
-      <a href="#">Developer</a>
+      <a href="#" ng-repeat="tag in main.posts[0].tags | limitTo: 10">{{tag}}</a>
     </div>
   </aside>
 
   <div class="articles">
-    <article>
+    <article ng-repeat="post in main.posts | limitTo: 4">
       <div>
         <img src="images/img1.jpg">
       </div>
       <h3>
-        <a href="#">Blogotitle of blogopost about blogoflowers</a>
+        <a href="#">{{post.title}}</a>
       </h3>
       <div class="articleInfo">
-        <time>22:58 Jan 01, 2014</time>
-        <div class="author">by E. Hyperraccoon</div>
+        <time>{{post.date.$date | date:'yyyy-MM-dd HH:mm'}}</time>
+        <div class="author">{{post.author}}</div>
         <div class="social">
           <a href="#" class="fb">16</a>
           <a href="#" class="goo">7</a>
@@ -111,65 +95,7 @@
           <a href="#" class="ya">1</a>
         </div>
       </div>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consequatur dolore dolores dolorum
-        expedita facere ipsa iure laborum minima mollitia nobis, officiis, quas qui quis quos tempora,
-        veritatis voluptate voluptatibus? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque deleniti
-        dolores iusto maxime porro quisquam quos voluptates! A ab ad architecto atque deleniti, ea eligendi eum facilis
-        illo incidunt inventore iste iusto labore laudantium libero mollitia nisi omnis quibusdam quidem quos reiciendis
-        rem repellat repudiandae rerum, sit suscipit tenetur voluptate.
-      </p>
-    </article>
-    <article>
-      <div>
-        <img src="images/img2.jpg">
-      </div>
-      <h3>
-        <a href="#">Blogotitle of blogopost about blogoflowers</a>
-      </h3>
-      <div class="articleInfo">
-        <time>12:35 Jan 02, 2013</time>
-        <div class="author">by I. Greycat</div>
-        <div class="social">
-          <a href="#" class="fb">12</a>
-          <a href="#" class="goo">3</a>
-          <a href="#" class="twi">5</a>
-          <a href="#" class="vk">9</a>
-          <a href="#" class="ya">0</a>
-        </div>
-      </div>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consequatur dolore dolores dolorum
-        expedita facere ipsa iure laborum minima mollitia nobis, officiis, quas qui quis quos tempora,
-        veritatis voluptate voluptatibus? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque deleniti
-        dolores iusto maxime porro quisquam quos voluptates! A ab ad architecto atque deleniti, ea eligendi eum facilis
-        illo incidunt inventore iste iusto labore laudantium libero mollitia nisi omnis quibusdam quidem quos reiciendis
-        rem repellat repudiandae rerum, sit suscipit tenetur voluptate.
-      </p>
-    </article>
-    <article>
-      <div>
-        <img src="images/img1.jpg">
-      </div>
-      <h3>
-        <a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a>
-      </h3>
-      <div class="articleInfo">
-        <time>10:31 Jan 01, 2013</time>
-        <div class="author">by E.Shopenhauer</div>
-        <div class="social">
-          <a href="#" class="fb">2</a>
-          <a href="#" class="goo">13</a>
-          <a href="#" class="twi">15</a>
-          <a href="#" class="vk">21</a>
-          <a href="#" class="ya">2</a>
-        </div>
-      </div>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consequatur dolore dolores dolorum
-        expedita facere ipsa iure laborum minima mollitia nobis, officiis, quas qui quis quos tempora,
-        veritatis voluptate voluptatibus? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque deleniti
-        dolores iusto maxime porro quisquam quos voluptates! A ab ad architecto atque deleniti, ea eligendi eum facilis
-        illo incidunt inventore iste iusto labore laudantium libero mollitia nisi omnis quibusdam quidem quos reiciendis
-        rem repellat repudiandae rerum, sit suscipit tenetur voluptate.
-      </p>
+      <p ng-bind-html="post.body"></p>
     </article>
   </div>
 
@@ -189,20 +115,22 @@
 
 <!-- build:js(.) scripts/oldieshim.js -->
 <!--[if lt IE 9]>
-<script src="bower_components/es5-shim/es5-shim.js"></script>
-<script src="bower_components/json3/lib/json3.min.js"></script>
+<!--script src="bower_components/es5-shim/es5-shim.js"></script>
+<script src="bower_components/json3/lib/json3.min.js"></script-->
 <![endif]-->
 <!-- endbuild -->
 
 <!-- build:js(.) scripts/vendor.js -->
 <!-- bower:js -->
-<script src="bower_components/angular/angular.js"></script>
+<!--script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/json3/lib/json3.js"></script>
-<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script-->
 <!-- endbower -->
 <!-- endbuild -->
 
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-sanitize.min.js"></script>
 <script src="scripts/app.js"></script>
 <script src="scripts/controllers/main.js"></script>
 <script src="scripts/Script.js"></script>

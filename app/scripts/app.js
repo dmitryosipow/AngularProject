@@ -8,7 +8,7 @@
  *
  * Main module of the application.
  */
+var a = 5;
+console.log('12345');
 angular
-  .module('angularProjectApp', [
-    'ngAnimate'
-  ]);
+  .module('angularProjectApp', ['ngSanitize']);
