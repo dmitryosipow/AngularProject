@@ -77,7 +77,27 @@
   </aside>
 
   <div class="articles">
-    <article ng-repeat="post in main.posts | limitTo: 4">
+    <button class="btn-for-modal" ng-click='toggleModal()'>Add new article</button>
+    <modal-dialog show='modalShown' width='750px' height='200px'>
+      <form name="reviewForm" ng-submit="main.addPost()">
+        <!--  Review Form -->
+        <h4>Submit a Review</h4>
+        <fieldset>
+          <textarea ng-model="main.post.body" class="form-control" placeholder="Text content of the article" title="body"></textarea>
+        </fieldset>
+        <fieldset >
+          <input ng-model="main.post.author" class="form-control" placeholder="Author name" title="author" />
+        </fieldset>
+        <fieldset >
+          <input ng-model="main.post.title" class="form-control" placeholder="Post title" title="title" />
+        </fieldset>
+        <fieldset >
+          <input type="submit" value="Submit Review" />
+        </fieldset>
+      </form>
+    </modal-dialog>
+
+    <article ng-repeat="post in main.posts | limitTo: 5">
       <div>
         <img src="images/img1.jpg">
       </div>
@@ -95,7 +115,7 @@
           <a href="#" class="ya">1</a>
         </div>
       </div>
-      <p ng-bind-html="post.body"></p>
+      <p ng-bind-html="post.body | limitTo: 700"></p>
     </article>
   </div>
 
