@@ -463,3 +463,11 @@ a{
   font-weight: bold;
   font-family: 'arial', 'sans-serif';
 }
+
+.ng-invalid.ng-dirty {
+  border-color:#FA787E;
+}
+
+.ng-valid.ng-dirty {
+  border-color:#78FA89;
+}

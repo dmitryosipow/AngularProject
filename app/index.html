@@ -78,18 +78,23 @@
 
   <div class="articles">
     <button class="btn-for-modal" ng-click='toggleModal()'>Add new article</button>
-    <modal-dialog show='modalShown' width='750px' height='200px'>
-      <form name="reviewForm" ng-submit="main.addPost()">
+    <modal-dialog show='modalShown' width='750px' height='400px'>
+      <form name="postForm" ng-submit="postForm.$valid && main.addPost()" novalidate>
         <!--  Review Form -->
         <h4>Submit a Review</h4>
         <fieldset>
-          <textarea ng-model="main.post.body" class="form-control" placeholder="Text content of the article" title="body"></textarea>
+          <textarea ng-model="main.post.body" class="form-control" placeholder="Text content of the article"
+                    title="body" required ></textarea>
         </fieldset>
         <fieldset >
-          <input ng-model="main.post.author" class="form-control" placeholder="Author name" title="author" />
+          <input ng-model="main.post.author" class="form-control" placeholder="Author name" title="author" required/>
         </fieldset>
         <fieldset >
-          <input ng-model="main.post.title" class="form-control" placeholder="Post title" title="title" />
+          <input fileread="main.post.imageSource" type="file" class="form-control" placeholder="Path to image"
+                 title="imageSource"/>
+        </fieldset>
+        <fieldset >
+          <input ng-model="main.post.title" class="form-control" placeholder="Post title" title="title" required/>
         </fieldset>
         <fieldset >
           <input type="submit" value="Submit Review" />
@@ -99,7 +104,7 @@
 
     <article ng-repeat="post in main.posts | limitTo: 5">
       <div>
-        <img src="images/img1.jpg">
+        <img ng-src="{{post.imageSource}}">
       </div>
       <h3>
         <a href="#">{{post.title}}</a>

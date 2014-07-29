@@ -28,9 +28,14 @@ app.controller('MainCtrl', function($scope, $http) {
     this.post.date.$date = Date.now();
     store.posts.push(this.post);
     this.post = {};
+    $scope.toggleModal();
   };
 });
 
+
+/**
+ * Directive for show/hide dialog box
+ */
 app.directive('modalDialog', function() {
   return {
     restrict: 'E',
@@ -51,4 +56,28 @@ app.directive('modalDialog', function() {
     templateUrl: 'Dialog.html'
   };
 });
+
+
+/**
+ * Directive for creating fileread 2-way bind parameter on file input in order to update post object
+ * after file selection
+ */
+app.directive("fileread", [function () {
+  return {
+    scope: {
+      fileread: "="
+    },
+    link: function (scope, element, attributes) {
+      element.bind("change", function (changeEvent) {
+        var reader = new FileReader();
+        reader.onload = function (loadEvent) {
+          scope.$apply(function () {
+            scope.fileread = loadEvent.target.result;
+          });
+        };
+        reader.readAsDataURL(changeEvent.target.files[0]);
+      });
+    }
+  }
+}]);
 
