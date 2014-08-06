@@ -1,0 +1,18 @@
+<div>
+  <img ng-src="{{post.imageSource}}">
+</div>
+<h3>
+  <a href="#">{{post.title}}</a>
+</h3>
+<div class="articleInfo">
+  <time>{{post.date.$date | date:'yyyy-MM-dd HH:mm'}}</time>
+  <div class="author">{{post.author}}</div>
+  <div class="social">
+    <a href="#" class="fb">16</a>
+    <a href="#" class="goo">7</a>
+    <a href="#" class="twi">15</a>
+    <a href="#" class="vk">16</a>
+    <a href="#" class="ya">1</a>
+  </div>
+</div>
+<p ng-bind-html="post.body | limitTo: 700"></p>

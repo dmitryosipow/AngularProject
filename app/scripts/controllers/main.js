@@ -8,8 +8,6 @@
  * Controller of the angularProjectApp
  */
 app.controller('MainCtrl', function($scope, $http) {
-
-
   $scope.modalShown = false;
   $scope.toggleModal = function() {
     $scope.modalShown = !$scope.modalShown;
@@ -53,31 +51,42 @@ app.directive('modalDialog', function() {
         scope.show = false;
       };
     },
-    templateUrl: 'Dialog.html'
+    templateUrl: 'templates/Dialog.html'
   };
 });
 
 
 /**
- * Directive for creating fileread 2-way bind parameter on file input in order to update post object
- * after file selection
+ * Directive for blog post
  */
-app.directive("fileread", [function () {
+app.directive('blogPost', function() {
+  return {
+    restrict: 'E',
+    templateUrl: 'templates/Blogpost.html'
+  };
+});
+
+
+/**
+ * Directive for creating fileread 2-way bind parameter on file input in order
+ * to update post object after file selection.
+ */
+app.directive('fileread', [function() {
   return {
     scope: {
-      fileread: "="
+      fileread: '='
     },
-    link: function (scope, element, attributes) {
-      element.bind("change", function (changeEvent) {
+    link: function(scope, element, attributes) {
+      element.bind('change', function(changeEvent) {
         var reader = new FileReader();
-        reader.onload = function (loadEvent) {
-          scope.$apply(function () {
+        reader.onload = function(loadEvent) {
+          scope.$apply(function() {
             scope.fileread = loadEvent.target.result;
           });
         };
         reader.readAsDataURL(changeEvent.target.files[0]);
       });
     }
-  }
+  };
 }]);
 
