@@ -7,27 +7,43 @@
  * # MainCtrl
  * Controller of the angularProjectApp
  */
-app.controller('MainCtrl', function($scope, $http) {
+app.controller('MainCtrl', function($scope, $http, PostRes) {
   $scope.modalShown = false;
   $scope.toggleModal = function() {
     $scope.modalShown = !$scope.modalShown;
   };
 
-  var store = this;
-  store.posts = [];
-  $http.get('posts.json').success(function(data) {
-    store.posts = data;
-  });
-
-  this.post = {};
 
   this.addPost = function() {
     this.post.date = {};
-    this.post.date.$date = Date.now();
-    store.posts.push(this.post);
-    this.post = {};
+    this.post.date = Date.now();
+
     $scope.toggleModal();
+
+    if(this.post._id){
+      PostRes.update({id:this.post._id},this.post.talk);
+    }else {
+      this.post.$save().then(function(response){
+        $scope.posts.push(response);
+      });
+    }
+    this.post = new PostRes();
   };
+
+  $scope.deletePost = function(post) {
+    PostRes.delete({id: post._id },function() {
+      console.log('delete');
+      $scope.posts = PostRes.query();
+    });
+  };
+
+  this.post = new PostRes();
+
+  $scope.posts = PostRes.query();
+  $scope.posts.$promise.then(function(data){
+    console.log('In Promises',data);
+  });
+
 });
 
 
@@ -89,4 +105,13 @@ app.directive('fileread', [function() {
     }
   };
 }]);
+
+app.factory('PostRes', function($resource){
+  var Post = $resource('http://54.72.3.96:3000/posts/:id',{},{
+    update:{
+      method:'PUT'
+    }
+  });
+  return Post;
+});
 

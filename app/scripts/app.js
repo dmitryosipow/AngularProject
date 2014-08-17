@@ -10,4 +10,4 @@
  */
 
 var app = angular
-  .module('angularProjectApp', ['ngSanitize']);
+  .module('angularProjectApp', ['ngSanitize','ngResource']);

@@ -72,7 +72,7 @@
     </div>
 
     <div class="tags">
-      <a href="#" ng-repeat="tag in main.posts[0].tags | limitTo: 10">{{tag}}</a>
+      <a href="#" ng-repeat="tag in posts[0].tags | limitTo: 10">{{tag}}</a>
     </div>
   </aside>
 
@@ -89,10 +89,10 @@
         <fieldset >
           <input ng-model="main.post.author" class="form-control" placeholder="Author name" title="author" required/>
         </fieldset>
-        <fieldset >
+        <!--fieldset >
           <input fileread="main.post.imageSource" type="file" class="form-control" placeholder="Path to image"
                  title="imageSource"/>
-        </fieldset>
+        </fieldset-->
         <fieldset >
           <input ng-model="main.post.title" class="form-control" placeholder="Post title" title="title" required/>
         </fieldset>
@@ -102,7 +102,7 @@
       </form>
     </modal-dialog>
 
-    <blog-post ng-repeat="post in main.posts | limitTo: 5">
+    <blog-post ng-repeat="post in posts">
     </blog-post>
   </div>
 
@@ -138,6 +138,7 @@
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-sanitize.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.min.js"></script>
 <script src="scripts/app.js"></script>
 <script src="scripts/controllers/main.js"></script>
 <script src="scripts/Script.js"></script>
