@@ -13,6 +13,7 @@ app.controller('MainCtrl', function($scope, $http, PostRes) {
     $scope.modalShown = !$scope.modalShown;
   };
 
+  var controller = this;
 
   this.addPost = function() {
     this.post.date = {};
@@ -20,10 +21,10 @@ app.controller('MainCtrl', function($scope, $http, PostRes) {
 
     $scope.toggleModal();
 
-    if(this.post._id){
-      PostRes.update({id:this.post._id},this.post.talk);
+    if (this.post._id) {
+      PostRes.update({id: this.post._id},this.post);
     }else {
-      this.post.$save().then(function(response){
+      this.post.$save().then(function(response) {
         $scope.posts.push(response);
       });
     }
@@ -37,11 +38,16 @@ app.controller('MainCtrl', function($scope, $http, PostRes) {
     });
   };
 
+  $scope.editPost = function(post) {
+    controller.post = post;
+    $scope.toggleModal();
+  };
+
   this.post = new PostRes();
 
   $scope.posts = PostRes.query();
-  $scope.posts.$promise.then(function(data){
-    console.log('In Promises',data);
+  $scope.posts.$promise.then(function(data) {
+    console.log('In Promises', data);
   });
 
 });
@@ -106,12 +112,11 @@ app.directive('fileread', [function() {
   };
 }]);
 
-app.factory('PostRes', function($resource){
-  var Post = $resource('http://54.72.3.96:3000/posts/:id',{},{
-    update:{
-      method:'PUT'
+app.factory('PostRes', function($resource) {
+  return $resource('http://54.72.3.96:3000/posts/:id', {}, {
+    update: {
+      method: 'PUT'
     }
   });
-  return Post;
 });
 

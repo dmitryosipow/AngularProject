@@ -102,7 +102,7 @@
       </form>
     </modal-dialog>
 
-    <blog-post ng-repeat="post in posts">
+    <blog-post ng-repeat="post in posts | orderBy:'-date'">
     </blog-post>
   </div>
 
