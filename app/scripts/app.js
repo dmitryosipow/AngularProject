@@ -10,4 +10,15 @@
  */
 
 var app = angular
-  .module('angularProjectApp', ['ngSanitize','ngResource']);
+  .module('angularProjectApp', ['ngSanitize', 'ngResource','ngRoute']);
+
+app.config(function($routeProvider) {
+  $routeProvider
+      .when('/', {
+        templateUrl: 'views/Main.html'
+      })
+      .when('/blog/:id', {
+        templateUrl: 'views/Post.html',
+        controller: 'PostCtrl'
+      });
+});

@@ -53,58 +53,8 @@
     <p class="mobileNavTitle">JAVASCRIPT</p>
   </nav>
 </header>
-<div class="content">
-  <aside>
-    <div class="sideArticle">
-      <h2 class="about">About</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab assumenda consectetur deserunt dolore doloribus
-        earum fuga hic illo illum, in laboriosam maiores mollitia necessitatibus nobis praesentium rem rerum saepe ut
-        veniam vero. Explicabo necessitatibus nobis nostrum sint soluta tempore! Tempore!
-      </p>
-    </div>
+<div class="content" ng-view>
 
-    <div class="sideArticle">
-      <h2 class="something">Something</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab assumenda consectetur deserunt dolore doloribus
-        earum fuga hic illo illum, in laboriosam maiores mollitia necessitatibus nobis praesentium rem rerum saepe ut
-        veniam vero. Explicabo necessitatibus nobis nostrum sint soluta tempore! Tempore!
-      </p>
-    </div>
-
-    <div class="tags">
-      <a href="#" ng-repeat="tag in posts[0].tags | limitTo: 10">{{tag}}</a>
-    </div>
-  </aside>
-
-  <div class="articles">
-    <button class="btn-for-modal" ng-click='toggleModal()'>Add new article</button>
-    <modal-dialog show='modalShown' width='750px' height='400px'>
-      <form name="postForm" ng-submit="postForm.$valid && main.addPost()" novalidate>
-        <!--  Review Form -->
-        <h4>Submit a Review</h4>
-        <fieldset>
-          <textarea ng-model="main.post.body" class="form-control" placeholder="Text content of the article"
-                    title="body" required ></textarea>
-        </fieldset>
-        <fieldset >
-          <input ng-model="main.post.author" class="form-control" placeholder="Author name" title="author" required/>
-        </fieldset>
-        <!--fieldset >
-          <input fileread="main.post.imageSource" type="file" class="form-control" placeholder="Path to image"
-                 title="imageSource"/>
-        </fieldset-->
-        <fieldset >
-          <input ng-model="main.post.title" class="form-control" placeholder="Post title" title="title" required/>
-        </fieldset>
-        <fieldset >
-          <input type="submit" value="Submit Review" />
-        </fieldset>
-      </form>
-    </modal-dialog>
-
-    <blog-post ng-repeat="post in posts | orderBy:'-date'">
-    </blog-post>
-  </div>
 
 </div>
 
@@ -139,6 +89,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-sanitize.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-route.min.js"></script>
 <script src="scripts/app.js"></script>
 <script src="scripts/controllers/main.js"></script>
 <script src="scripts/Script.js"></script>

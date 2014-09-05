@@ -1,23 +1,51 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-</div>
+<aside>
+  <div class="sideArticle">
+    <h2 class="about">About</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab assumenda consectetur deserunt dolore doloribus
+      earum fuga hic illo illum, in laboriosam maiores mollitia necessitatibus nobis praesentium rem rerum saepe ut
+      veniam vero. Explicabo necessitatibus nobis nostrum sint soluta tempore! Tempore!
+    </p>
+  </div>
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
+  <div class="sideArticle">
+    <h2 class="something">Something</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab assumenda consectetur deserunt dolore doloribus
+      earum fuga hic illo illum, in laboriosam maiores mollitia necessitatibus nobis praesentium rem rerum saepe ut
+      veniam vero. Explicabo necessitatibus nobis nostrum sint soluta tempore! Tempore!
+    </p>
+  </div>
 
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
+  <div class="tags">
+    <a href="#" ng-repeat="tag in posts[0].tags | limitTo: 10">{{tag}}</a>
+  </div>
+</aside>
 
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
+<div class="articles">
+  <button class="btn-for-modal" ng-click='toggleModal()'>Add new article</button>
+  <modal-dialog show='modalShown' width='750px' height='400px'>
+    <form name="postForm" ng-submit="postForm.$valid && main.addPost()" novalidate>
+      <!--  Review Form -->
+      <h4>Submit a Review</h4>
+      <fieldset>
+        <textarea ng-model="main.post.body" class="form-control" placeholder="Text content of the article"
+                  title="body" required ></textarea>
+      </fieldset>
+      <fieldset >
+        <input ng-model="main.post.author" class="form-control" placeholder="Author name" title="author" required/>
+      </fieldset>
+      <!--fieldset >
+        <input fileread="main.post.imageSource" type="file" class="form-control" placeholder="Path to image"
+               title="imageSource"/>
+      </fieldset-->
+      <fieldset >
+        <input ng-model="main.post.title" class="form-control" placeholder="Post title" title="title" required/>
+      </fieldset>
+      <fieldset >
+        <input type="submit" value="Submit Review" />
+      </fieldset>
+    </form>
+  </modal-dialog>
+
+  <blog-post ng-repeat="post in posts | orderBy:'-date'">
+  </blog-post>
 </div>

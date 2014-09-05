@@ -1,0 +1,15 @@
+<h3>
+  <a href="#">{{currentPost.title}}</a>
+</h3>
+<div class="articleInfo">
+  <time>{{currentPost.date | date:'yyyy-MM-dd HH:mm'}}</time>
+  <div class="author">{{currentPost.author}}</div>
+  <div class="social">
+    <a href="#" class="fb">16</a>
+    <a href="#" class="goo">7</a>
+    <a href="#" class="twi">15</a>
+    <a href="#" class="vk">16</a>
+    <a href="#" class="ya">1</a>
+  </div>
+</div>
+<p ng-bind-html="currentPost.body"></p>
