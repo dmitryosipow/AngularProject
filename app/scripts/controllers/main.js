@@ -47,6 +47,9 @@ app.controller('MainCtrl', function($scope, $http, PostRes) {
 
   $scope.posts = PostRes.query();
   $scope.posts.$promise.then(function(data) {
+    data.forEach(function(obj) {
+      obj.id = obj._id;
+    });
     console.log('In Promises', data);
   });
 
