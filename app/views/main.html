@@ -20,9 +20,9 @@
   </div>
 </aside>
 
-<div class="articles">
+<div class="articles" param1="{{main.modalShown}}">
   <button class="btn-for-modal" ng-click='toggleModal()'>Add new article</button>
-  <modal-dialog show='modalShown' width='750px' height='400px'>
+  <modal-dialog show='main.modalShown' param1="{{main.modalShown}}" width='750px' height='400px'>
     <form name="postForm" ng-submit="postForm.$valid && main.addPost()" novalidate>
       <!--  Review Form -->
       <h4>Submit a Review</h4>

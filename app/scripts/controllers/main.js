@@ -8,12 +8,13 @@
  * Controller of the angularProjectApp
  */
 app.controller('MainCtrl', function($scope, $http, PostRes) {
-  $scope.modalShown = false;
-  $scope.toggleModal = function() {
-    $scope.modalShown = !$scope.modalShown;
-  };
 
   var controller = this;
+
+  controller.modalShown = false;
+  $scope.toggleModal = function() {
+    controller.modalShown = !controller.modalShown;
+  };
 
   this.addPost = function() {
     this.post.date = {};
