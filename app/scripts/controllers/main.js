@@ -7,7 +7,7 @@
  * # MainCtrl
  * Controller of the angularProjectApp
  */
-app.controller('MainCtrl', function($scope, $http, PostRes) {
+app.controller('MainCtrl', function($scope, $http, PostRes, TextFormat) {
 
   var controller = this;
 
@@ -50,6 +50,7 @@ app.controller('MainCtrl', function($scope, $http, PostRes) {
   $scope.posts.$promise.then(function(data) {
     data.forEach(function(obj) {
       obj.id = obj._id;
+      obj.body = TextFormat.cut(obj.body, 100);
     });
     console.log('In Promises', data);
   });
