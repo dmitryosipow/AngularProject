@@ -27,8 +27,13 @@ app.controller('MainCtrl', function($scope, $http, PostRes, TextFormat) {
     }else {
       this.post.$save().then(function(response) {
         $scope.posts.push(response);
+        $scope.posts = PostRes.query();
+        $scope.posts.$promise.then(function(data) {
+          data.forEach(correctList);
+        });
       });
     }
+
     this.post = new PostRes();
   };
 
@@ -36,6 +41,9 @@ app.controller('MainCtrl', function($scope, $http, PostRes, TextFormat) {
     PostRes.delete({id: post._id },function() {
       console.log('delete');
       $scope.posts = PostRes.query();
+      $scope.posts.$promise.then(function(data) {
+        data.forEach(correctList);
+      });
     });
   };
 
@@ -48,12 +56,14 @@ app.controller('MainCtrl', function($scope, $http, PostRes, TextFormat) {
 
   $scope.posts = PostRes.query();
   $scope.posts.$promise.then(function(data) {
-    data.forEach(function(obj) {
-      obj.id = obj._id;
-      obj.body = TextFormat.cut(obj.body, 100);
-    });
+    data.forEach(correctList);
     console.log('In Promises', data);
   });
+
+  function correctList(obj) {
+    obj.id = obj._id;
+    obj.body = TextFormat.cut(obj.body, 100);
+  }
 
 });
 

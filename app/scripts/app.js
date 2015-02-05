@@ -10,7 +10,7 @@
  */
 
 var app = angular
-  .module('angularProjectApp', ['ngSanitize', 'ngResource','ngRoute']);
+  .module('angularProjectApp', ['ngSanitize', 'ngResource','ngRoute','extraServices']);
 
 app.config(function($routeProvider) {
   $routeProvider
