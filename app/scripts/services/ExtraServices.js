@@ -1,7 +1,9 @@
 /**
  * Created by Dzmitry_Osipau on 2/5/2015.
  */
-var module = angular.module('extraServices', []);
+(function () {
+
+var module = angular.module('extraServices',[]);
 
 module.service('TextFormat', function() {
 
@@ -24,3 +26,5 @@ module.service('TextFormat', function() {
   };
 
 });
+
+})();
