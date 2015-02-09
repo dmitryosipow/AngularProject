@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Posts service unit test', function () {
+describe('Posts service unit test', function() {
   var $httpBackend,
       postsService,
       respondItems = [
@@ -21,13 +21,13 @@ describe('Posts service unit test', function () {
 
   beforeEach(module('angularProjectApp'));
 
-  beforeEach(inject(function ($injector) {
+  beforeEach(inject(function($injector) {
     $httpBackend = $injector.get('$httpBackend');
     $httpBackend.when('GET', 'http://54.72.3.96:3000/posts').respond(respondItems);
     postsService = $injector.get('PostRes');
   }));
 
-  afterEach(function () {
+  afterEach(function() {
     // Verifies that all of the requests defined via the expect api were made.
     // If any of the requests were not made, verifyNoOutstandingExpectation throws an exception.
     $httpBackend.verifyNoOutstandingExpectation();
@@ -35,7 +35,7 @@ describe('Posts service unit test', function () {
     $httpBackend.verifyNoOutstandingRequest();
   });
 
-  it('should return items on the start', function () {
+  it('should return items on the start', function() {
     var items;
 
     items = postsService.query();

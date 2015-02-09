@@ -18,7 +18,8 @@ module.exports = function(config) {
 	    'libraries/angular.min.js',
 	    'libraries/**/*.js',
       'app/scripts/**/*.js',
-      'test/spec/**/*.js'
+      'test/spec/**/*.js',
+      'app/templates/**/*.html'
     ],
 
 
@@ -30,7 +31,9 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+      'app/templates/**/*.html': 'ng-html2js'
     },
+
 
 
     // test results reporter to use

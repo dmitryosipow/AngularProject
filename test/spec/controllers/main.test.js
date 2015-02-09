@@ -40,12 +40,12 @@ describe('Controller: MainCtrl', function () {
 
     // Simulate respond from server.
     postsService = $injector.get('PostRes');
-    spyOn(postsService, 'query').andReturn(respondItems);
+    spyOn(postsService, 'query').and.returnValue(respondItems);
 
     // New post is not simple object but resource object for interaction with REST server.
     // Simulating saving function for this object.
     newPost.$save = function(){};
-    spyOn(newPost, '$save').andCallFake(function() {
+    spyOn(newPost, '$save').and.callFake(function() {
       respondItems.push(newPost);
       return new Promise(function(resolve, reject) {});
     });

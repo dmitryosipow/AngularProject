@@ -20,7 +20,7 @@ describe('Controller: PostCtrl', function () {
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope, $injector) {
     postsService = $injector.get('PostRes');
-    spyOn(postsService, 'get').andReturn(post);
+    spyOn(postsService, 'get').and.returnValue(post);
 
     scope = $rootScope.$new();
     PostCtrl = $controller('PostCtrl', {
