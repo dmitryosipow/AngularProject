@@ -2,7 +2,7 @@
 
 describe('Controller: MainCtrl', function () {
 
-  // load the controller's module
+  // Load the controller's module
   beforeEach(module('angularProjectApp'));
   beforeEach(module('extraServices'));
 
@@ -24,6 +24,7 @@ describe('Controller: MainCtrl', function () {
           date: '1423149343123',
           title: ''
         }],
+      // info from form input
       newPost = {
         author: 'Василий',
         body: 'Добавляем',
