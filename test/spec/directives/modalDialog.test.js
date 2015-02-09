@@ -1,12 +1,12 @@
 'use strict';
 
-describe('Directive: BlogPost', function() {
+describe('Directive: ModalDialog', function() {
 
   beforeEach(module('angularProjectApp'));
 
   // Need to install karma-ng-html2js-preprocessor to load templates for
   // directive in the test.
-  beforeEach(module('app/templates/Blogpost.html'));
+  beforeEach(module('app/templates/Dialog.html'));
 
   var element,
       scope,
@@ -21,14 +21,16 @@ describe('Directive: BlogPost', function() {
   beforeEach(inject(function($rootScope, $compile, $templateCache) {
     scope = $rootScope.$new();
     scope.post = postInfo;
-    var template = $templateCache.get('app/templates/Blogpost.html');
-    $templateCache.put('templates/Blogpost.html', template);
+    var template = $templateCache.get('app/templates/Dialog.html');
+    $templateCache.put('templates/Dialog.html', template);
     //console.log(template);
 
   }));
 
   it('should show info according to scope object post', inject(function($compile) {
-    element = angular.element('<blog-post></blog-post>');
+    element = angular.element('<modal-dialog>' +
+        '<p>{{post.body}}</p>' +
+        '</modal-dialog>');
     element = $compile(element)(scope);
     scope.$digest();
     expect(element.find('p').text()).toBe(postInfo.body);
